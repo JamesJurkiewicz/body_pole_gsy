@@ -1,0 +1,10 @@
+    .container{
+		background-color: transparent;
+		margin-top:200px;
+    }
+	
+		.navbar{
+	background-color: rgba(240,240,240,0.95);
+	box-shadow: 0px 0px 10px 10px rgba(240,240,240,0.95);
+
+	}

@@ -1,0 +1,136 @@
+
+
+body {
+	font-size: 20px;
+	font-family:"calibri";
+	font-style:bold;
+	text-align: center;
+	color: gray; 
+	font-variant: small-caps;
+	background-image:url("/../images/masquerade_2.jpg");
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+	/*background-size:auto;
+	background-size:cover;
+	height:auto;
+	padding:50px 50px 50px 50px ;*/
+}
+
+.head{
+	width:40%;
+	display:inline-block;
+	padding:40px 0px 0px 0px;
+	}
+	
+.navbar-nav > li {
+	line-height:10px; 
+	display:inline-block;
+	padding: 0px 20px 0px 20px;
+	height:auto;
+	border:0;
+	margin:0px;
+	text-align: center;
+	float: center;
+	}
+	
+.navbar-header{
+	padding:0;
+	width:100%;
+	}
+
+.navbar{
+	position: relative;
+	margin-bottom:20px;
+	top:40px;
+	padding:0px 0px;
+	width:100%;
+	background-color: rgba(240,240,240,0.8);
+	box-shadow: 0px 0px 10px 10px rgba(240,240,240,0.8);
+	float: none;
+	border:transparent;
+	}
+	
+	
+.navbar-nav {
+	float: center;
+	height:auto;
+	}
+		
+.form-group{
+	position:fixed;
+	bottom:10px;
+	display: inline-block;
+    text-align: center;
+	}
+
+.dropdown-menu{
+	background-color: rgba(240,240,240,0.95);
+	box-shadow: 0px 0px 10px 10px rgba(240,240,240,0.95);
+	float: center;
+	border:transparent;
+	width:100%;
+	border-radius:1px;
+	}
+	
+.dropdown-menu > li :hover {
+	background: transparent; 
+	font-weight:bold;
+	}
+
+.dropdown-menu.a:link {color:gray;text-decoration:none;font-variant: small-caps;} 
+.dropdown-menu.a:visited {color:gray;text-decoration:none;}  /* visited link */
+.dropdown-menu.a:hover {color:gray; text-decoration:none; font-weight:bold;}  /* mouse over link */
+.dropdown-menu.a:active {color:gray;text-decoration:none;}  /* selected link */
+	
+	a:link {color:gray;text-decoration:none;font-variant: bold;}      /* unvisited link */
+	a:visited {color:gray;text-decoration:none;}  /* visited link */
+	a:hover {color:black; text-decoration:none; font-weight:bold;}  /* mouse over link */
+	a:active {color:gray;text-decoration:none; font-weight:bold;}  /* selected link */
+	
+
+    .container{
+		position:relative;
+		height:100%;
+        max-width: 65%;
+		left:center;
+		width:100%;
+		background-color: rgba(200,200,200,0.8);
+		text-align:center;
+		padding-bottom:120px;
+		margin-top:30px;
+		margin-bottom:30px;
+		/*box-shadow: 0px 0px 10px 10px rgba(240,240,240,0.8);*/
+		border-radius:10px;
+    }
+
+.active-link {
+	color:gray;
+	text-decoration:none; 
+	font-weight:bold;
+	}
+	
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+background-color: transparent;
+	}
+
+.navbar-default .navbar-toggle {
+border-color: transparent;
+}
+	
+ .navbar-toggle {
+	position: relative;
+	float: center;	
+	padding: 10px 10px;
+	text-align:center;
+	margin-right:0px;
+	margin-left:0px
+}
+
+.container-inner{
+	width: 75%; 
+	position: relative;
+	top:50px;
+	display:inline-block;
+	color: black; 
+}

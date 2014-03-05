@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Bridge of Sighs Commemoration Ball</title>
+   
+   <link href='/dist/css/bootstrap.css' rel='stylesheet'>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='/style.css' rel="stylesheet" type="text/css"> 
+
+   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  	<%= yield %>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed 
+		<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>			-->
+	
+		<script type="text/javascript" src="/dist/js/myscript.js"></script> 
+
+		<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>    
+
+</body>
+</html>
