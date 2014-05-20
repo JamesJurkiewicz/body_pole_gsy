@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'pony'
-require 'mongoid'
+#require 'mongoid'
 require 'json'
 require 'rubygems'
 require 'google_drive'
