@@ -10,8 +10,8 @@ font-variant: small-caps;
 }
 
 input, textarea, keygen, select, button, isindex {
-
-background-color: rgba(240,240,240,0.8);
+color:black;
+background-color: rgba(240,240,240,0.4);
 font-variant: small-caps;
 text-align: center;
 }
@@ -22,4 +22,22 @@ width: 40%;
 background-color: rgba(240,240,240,0.8);
 padding:10px 20px;
 margin:10px 0px;
+}
+
+input.placeholder {
+   color: red;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+color: #fff;
+background-color: #47a447;
+}
+.btn:hover, .btn:focus {
+color: #333;
+text-decoration: none;
+}
+.btn-success {
+/* color: #fff; */
+/* background-color: #5cb85c; */
+/* border-color: #4cae4c; */
 }

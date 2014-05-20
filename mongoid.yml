@@ -3,7 +3,7 @@ development:
     default:
       hosts:
         - localhost:27017
-      database: table_plan
+      database: mongoid
   options:
     raise_not_found_error: false
 

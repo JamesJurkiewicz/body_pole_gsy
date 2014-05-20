@@ -51,19 +51,19 @@ body {
 	border:transparent;
 	}
 	
-	
+	 
 .navbar-nav {
 	float: center;
 	height:auto;
 	}
 		
-.form-group{
+/*.form-group{
 	position:fixed;
 	bottom:10px;
 	display: inline-block;
     text-align: center;
 	}
-
+*/
 .dropdown-menu{
 	background-color: rgba(240,240,240,0.95);
 	box-shadow: 0px 0px 10px 10px rgba(240,240,240,0.95);
@@ -134,3 +134,4 @@ border-color: transparent;
 	display:inline-block;
 	color: black; 
 }
+

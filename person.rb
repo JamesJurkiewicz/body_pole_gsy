@@ -7,3 +7,4 @@ class Person
   field :table, type: Integer
  
 end
+ 

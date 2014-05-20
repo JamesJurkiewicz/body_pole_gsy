@@ -42,27 +42,28 @@
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
+		<div class='container-inner'>
+			<div class='table-form'>
+				<h2>Table Plan</h2>
+				<form role='form' method='POST' class='form-inline'>
+			  		<label for='[name]'>Name</label>
+			 		<input name='[name]' class='form-control'>
 
-		<div class='table-form'>
-			<h2>Table Plan</h2>
-			<form role='form' method='POST' class='form-inline'>
-		  		<label for='[name]'>Name</label>
-		 		<input name='[name]' class='form-control'>
-
-					<select name="[table]">
-						<option value=1>1</option>
-						<option value=2>2</option>
-						<option value=3>3</option>
-						<option value=4>4</option>
-					</select>
+						<select name="[table]">
+							<option value=1>1</option>
+							<option value=2>2</option>
+							<option value=3>3</option>
+							<option value=4>4</option>
+						</select>
 
 
-				<button type="submit" class="btn btn-success btn-lg">Submit</button>
-			</form>
+					<button type="submit" class="btn btn-success btn-lg">Submit</button>
+				</form>
+			</div>
 		</div>
 		<div class='row'>
 			<div class='col-sm-4'>
-				<%= @diner %> <% @table %>
+				<p><%= @a %>  <%= @b %><p>
 			</div>
 		</div>
 	</div>
