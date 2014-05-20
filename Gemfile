@@ -4,5 +4,5 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'pony'
-gem 'mondoid'
+#gem 'mondoid'
 gem 'google_drive'
