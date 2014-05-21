@@ -139,8 +139,7 @@ post '/ticket_form' do
     #       content_type 'text/html; charset=UTF-8'
     #       body '<b>Hello world in HTML</b>'
     #     end
-    # end
-end
+  
 
   erb :thankyou
 end
