@@ -103,43 +103,43 @@ post '/ticket_form' do
     end
     ws.save
 
-    # if ws.num_rows<=133
-    
-    #   Pony.mail( :to => ticket['email'],
-    #         :bcc => "administrator@bridgeofsighsball.co.uk",
-    #         :subject => "Bridge of Sighs confirmation email",
-    #         :body => erb(:email, :layout => false)   )
-    # else
-    #   Pony.mail( :to => ticket['email'],
-    #         :bcc => "administrator@bridgeofsighsball.co.uk",
-    #         :subject => "Bridge of Sighs confirmation email",
-    #         :body => erb(:email_reserve, :layout => false)   )      
-    # end  
-
     if ws.num_rows<=133
+    
+      Pony.mail( :to => ticket['email'],
+            :bcc => "administrator@bridgeofsighsball.co.uk",
+            :subject => "Bridge of Sighs confirmation email",
+            :body => erb(:email, :layout => false)   )
+    else
+      Pony.mail( :to => ticket['email'],
+            :bcc => "administrator@bridgeofsighsball.co.uk",
+            :subject => "Bridge of Sighs confirmation email",
+            :body => erb(:email_reserve, :layout => false)   )      
+    end  
 
-      Mail.defaults do
-          delivery_method :smtp, { :address   => "smtp.sendgrid.net",
-                           :port      => 587,
-                           :domain    => "bridgeofsighsball.com",
-                           :user_name => "tickets@bridgeofsighsball.com",
-                           :password  => "bosb4",
-                           :authentication => 'plain',
-                           :enable_starttls_auto => true }
-          end
+    # if ws.num_rows<=133
 
-      mail = Mail.deliver do
-        to ticket['email']
-        from 'Bridge of Sighs Ball <tickets@bridgeofsighsball.co.uk>'
-        subject 'Ticket Sales'
-        text_part do
-          body 'HI'
-        end
-        html_part do
-          content_type 'text/html; charset=UTF-8'
-          body '<b>Hello world in HTML</b>'
-        end
-    end
+    #   Mail.defaults do
+    #       delivery_method :smtp, { :address   => "smtp.sendgrid.net",
+    #                        :port      => 587,
+    #                        :domain    => "bridgeofsighsball.com",
+    #                        :user_name => "tickets@bridgeofsighsball.com",
+    #                        :password  => "bosb4",
+    #                        :authentication => 'plain',
+    #                        :enable_starttls_auto => true }
+    #       end
+
+    #   mail = Mail.deliver do
+    #     to ticket['email']
+    #     from 'Bridge of Sighs Ball <tickets@bridgeofsighsball.co.uk>'
+    #     subject 'Ticket Sales'
+    #     text_part do
+    #       body 'HI'
+    #     end
+    #     html_part do
+    #       content_type 'text/html; charset=UTF-8'
+    #       body '<b>Hello world in HTML</b>'
+    #     end
+    # end
 end
 
   erb :thankyou
