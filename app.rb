@@ -69,12 +69,12 @@ post '/ticket_form' do
 
   ticket = {'name' => params[:name], 'email' => params[:email], 'college' => params[:college], 'tickets' => params[:tickets], 'status' => params[:status], 'age' => params[:age], 'ref_num' => rand(1000000)}
   puts ticket
-    if ticket['tickets']='1' 
-      @ticket_text= 'a ticket'
-      @cost= "130"
-    else 
+    if ticket['tickets']=="2"
       @ticket_text= 'two tickets'
       @cost="260"
+    else 
+      @ticket_text= 'a ticket'
+      @cost= "130"
     end
   puts @ticket_text
     @name= ticket['name'].split.first.capitalize
