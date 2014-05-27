@@ -99,6 +99,7 @@ post '/ticket_form' do
        ws[row, 5]= ticket["status"]
        ws[row, 6]= ticket["age"]
        ws[row, 7]= ticket["ref_num"]
+       ws[row, 8]= "=now()"
       end
     end
     ws.save
