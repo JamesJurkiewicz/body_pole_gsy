@@ -69,14 +69,16 @@ post '/ticket_form' do
 
   ticket = {'name' => params[:name], 'email' => params[:email], 'college' => params[:college], 'tickets' => params[:tickets], 'status' => params[:status], 'age' => params[:age], 'ref_num' => rand(1000000)}
   puts ticket
-    if ticket['tickets']=="2"
-      @ticket_text= 'two tickets'
-      @cost="260"
-    else 
+    if ticket['tickets']=="1"
       @ticket_text= 'a ticket'
-      @cost= "130"
+     # @cost="260"
+    else 
+      @ticket_text= 'tickets'
+     # @cost= "130"
     end
+
   puts @ticket_text
+    @cost= (130*ticket['tickets'].to_i).to_s
     @name= ticket['name'].split.first.capitalize
     @reference = ticket['ref_num'].to_s
 
@@ -93,13 +95,13 @@ post '/ticket_form' do
     for row in ws.num_rows+1..ws.num_rows+1
       for col in 1..ws.num_cols
        ws[row, 1]= ticket["name"]
-      ws[row, 2]= ticket["email"]
+       ws[row, 2]= ticket["email"]
        ws[row, 3]= ticket["college"]
        ws[row, 4]= ticket["tickets"]
        ws[row, 5]= ticket["status"]
        ws[row, 6]= ticket["age"]
        ws[row, 7]= ticket["ref_num"]
-       ws[row, 8]= "=now()"
+       ws[row, 8]= "=getDateandTime()"
       end
     end
     ws.save
