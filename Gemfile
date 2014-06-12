@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'pony'
-#gem 'mondoid'
+gem 'mongoid'
 gem 'google_drive'
+gem 'mongo'
 #gem 'mail'
