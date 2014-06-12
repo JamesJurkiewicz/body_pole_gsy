@@ -46,10 +46,9 @@
 			<div class='table-form'>
 				<h2>Table Plan</h2>
 				<form role='form' method='POST' class='form-inline'>
-			  		<label for='[name]'>Name</label>
-			 		<input name='[name]' class='form-control'>
+			<input type="text" class='form-control' name="name" placeholder="Name" >
 
-						<select name="[table]">
+						<select name="table">
 							<option value=1>1</option>
 							<option value=2>2</option>
 							<option value=3>3</option>
@@ -60,11 +59,17 @@
 					<button type="submit" class="btn btn-success btn-lg">Submit</button>
 				</form>
 			</div>
-		</div>
-		<div class='row'>
-			<div class='col-sm-4'>
-				<p><%= @a %>  <%= @b %><p>
-			</div>
+		
+			<table class='table'>
+			  <thead>
+			    <tr><th>Table 1</th>
+			  </thead>
+			  <tbody>
+			    <% @persons.each do |p| %>
+			      <tr><td><%= p.name %></td></tr>
+			    <% end %>
+			  </tbody>
+			</table>
 		</div>
 	</div>
 </body>

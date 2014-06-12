@@ -1,10 +1,11 @@
-# require 'mongoid'
+require 'mongoid'
+require 'csv'
 
-# class Person
-#   include Mongoid::Document
+class Person
+  include Mongoid::Document
 
-#   field :name, type: String
-#   field :table, type: Integer
+  field :name,  type: String
+  field :table, type: String
  
-# end
+end
  

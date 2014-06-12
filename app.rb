@@ -1,14 +1,14 @@
 require 'sinatra'
 require 'pony'
-#require 'mongoid'
+require 'mongoid'
 require 'json'
 require 'rubygems'
 require 'google_drive'
 
-# require './person'
+ require './person'
 
 # Setup database connection
-#Mongoid.load!("mongoid.yml")
+Mongoid.load!("mongoid.yml")
 
 get '/'  do
   erb :index
@@ -39,6 +39,13 @@ get '/contact' do
 end
 
 get '/table_plan' do
+ # table_number=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  #table_number.each do |a|
+    #a=a.string
+   # @table=Person.where(:table=>"a") 
+   # puts @table
+  #end
+  @table= Person.all
 	erb:table_plan
 end
 
@@ -47,15 +54,26 @@ get '/ticket_form' do
 end
 
 
-# post '/table_plan' do
+post '/table_plan' do
 
-#   diner=Person.new(:name => params[:name], :table => params[:table])
+  puts "received post"
+  puts params[:name]
+  puts params[:table]
 
-# 	@a=diner.name
-# 	@b=diner.table
+  name=params[:name]
+  table_number=params[:table]
+  @diner=Person.new(:name => name, :table => table_number)
+  @diner.save
+  puts @diner
+  #table_number=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  #table_number.each do |a|
+    #a=a.string
+    @persons=Person.where(:table=>"1") 
+    puts @persons
+  #end
 
-#   erb:table_plan
-# end
+  erb:table_plan
+end
 
 if settings.environment == :production
   # if we're on heroku, use the sendgrid settings
