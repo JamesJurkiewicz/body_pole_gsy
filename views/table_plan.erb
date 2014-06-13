@@ -59,17 +59,75 @@
 					<button type="submit" class="btn btn-success btn-lg">Submit</button>
 				</form>
 			</div>
-		
-			<table class='table'>
-			  <thead>
-			    <tr><th>Table 1</th>
-			  </thead>
-			  <tbody>
-			    <% @persons.each do |p| %>
-			      <tr><td><%= p.name %></td></tr>
-			    <% end %>
-			  </tbody>
-			</table>
+			<div class='row'>		
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 1</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 1).count == 0 %>
+					  		Nobody has seleced table 1 yet!
+					  	<%else 
+				  			@persons= Person.where(:table => 1)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 2</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 2).count == 0 %>
+					  		Nobody has seleced table 2 yet!
+					  	<%else 
+				  			@persons= Person.where(:table => 2)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 3</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 3).count == 0 %>
+					  		Nobody has seleced table 3 yet!
+					  	<%else 
+				  			@persons= Person.where(:table => 3)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 4</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 4).count == 0 %>
+					  		Nobody has seleced table 4 yet!
+					  	<%else 
+				  			@persons= Person.where(:table => 4)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
 		</div>
 	</div>
 </body>
