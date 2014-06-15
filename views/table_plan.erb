@@ -2,7 +2,7 @@
 <html>
 <head>
  <title>Table Plan</title> 
- <link href='/plan.css' rel="stylesheet" type="text/css"> 
+ <link href="/dist/css/plan.css" rel="stylesheet" type="text/css"> 
 </head>
 
 <body>
@@ -56,13 +56,22 @@
 									<option value=2>2</option>
 									<option value=3>3</option>
 									<option value=4>4</option>
+									<option value=5>5</option>
+									<option value=6>6</option>
+									<option value=7>7</option>
+									<option value=8>8</option>
+									<option value=9>9</option>
+									<option value=10>10</option>
+									<option value=11>11</option>
+									<option value=12>12</option>
 									</select>
 
 					<br>
 					<br>
-					<button type="submit" class="btn btn-primay btn-sm">Submit</button>
+					<button type="submit" class="btn btn-success">Submit</button>
 				</form>
 			</div>
+			<br><br>
 			<div class='row'>		
 				<div class='col-sm-3'>
 					<table class='table'>
@@ -71,7 +80,7 @@
 					  </thead>
 					  <tbody>
 					  	<% if Person.where(:table => 1).count == 0 %>
-					  		Nobody has seleced table 1 yet!
+					  		
 					  	<%else 
 				  			@persons= Person.where(:table => 1)
 					     	@persons.each do |p| %>
@@ -88,7 +97,7 @@
 					  </thead>
 					  <tbody>
 					  	<% if Person.where(:table => 2).count == 0 %>
-					  		Nobody has seleced table 2 yet!
+					  		
 					  	<%else 
 				  			@persons= Person.where(:table => 2)
 					     	@persons.each do |p| %>
@@ -105,7 +114,7 @@
 					  </thead>
 					  <tbody>
 					  	<% if Person.where(:table => 3).count == 0 %>
-					  		Nobody has seleced table 3 yet!
+					  		
 					  	<%else 
 				  			@persons= Person.where(:table => 3)
 					     	@persons.each do |p| %>
@@ -122,7 +131,7 @@
 					  </thead>
 					  <tbody>
 					  	<% if Person.where(:table => 4).count == 0 %>
-					  		Nobody has seleced table 4 yet!
+					  	
 					  	<%else 
 				  			@persons= Person.where(:table => 4)
 					     	@persons.each do |p| %>
@@ -132,6 +141,150 @@
 					  </tbody>
 					</table>
 				</div>
+			</div>
+			<hr>
+			<div class='row'>		
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 5</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 5).count == 0 %>
+					  
+					  	<%else 
+				  			@persons= Person.where(:table => 5)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 6</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 6).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 6)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 7</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 7).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 7)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 8</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 8).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 8)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<hr>
+			<div class='row'>		
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 9</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 9).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 9)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 10</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 10).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 10)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 11</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 11).count == 0 %>
+					  	
+					  	<%else 
+				  			@persons= Person.where(:table => 11)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 12</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 12).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 12)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+			</div>	
+			<hr>		
 		</div>
 	</div>
 </body>

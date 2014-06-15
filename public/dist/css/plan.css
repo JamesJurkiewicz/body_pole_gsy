@@ -1,0 +1,16 @@
+.input{
+	margin-left: 10px;
+	margin-right:10px;
+}
+
+th {
+	text-align: center;
+}
+
+hr{
+    padding: 0;
+    border: none;
+    border-top: medium double;
+    color: white;
+    text-align: center;
+}

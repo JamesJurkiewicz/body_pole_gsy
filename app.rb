@@ -9,7 +9,7 @@ require 'google_drive'
 
 # Setup database connection
 Mongoid.load!("mongoid.yml")
-
+#Person.destroy_all
 get '/'  do
   erb :index
 end
@@ -62,20 +62,17 @@ post '/table_plan' do
 
   if Person.where(:table => table_number).count == 10
     @table_number=table_number.to_s
-    erb:table_plan_fail
+  erb:table_plan_fail
 
   else
     @diner=Person.new(:name => name, :table => table_number)
     @diner.save
-
+    erb:table_plan_success
   end
   #table_number=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   #table_number.each do |a|
     #a=a.string
-
   #end
-
-  erb:table_plan_success
 end
 
 if settings.environment == :production
