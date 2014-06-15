@@ -45,23 +45,8 @@
 		</nav>
 		<div class='container-inner'>
 			<div class='table-form'>
-				<h2>Seating</h2>
-				<p class="title-text">Dining guests will be treated on the night to three courses of Italian delicacy the the Randolph hotel. Guests will be split into tables of 10. Please select the table at which you wish to be seated...
-
-				<form role='form' method='POST' class='form-inline'>
-					Name: <input type="text" class='form-control' name="name">
-					
-					Table number:	<select class="form-control" name="table">
-									<option value=1>1</option>
-									<option value=2>2</option>
-									<option value=3>3</option>
-									<option value=4>4</option>
-									</select>
-
-					<br>
-					<br>
-					<button type="submit" class="btn btn-primay btn-sm">Submit</button>
-				</form>
+				<h2>Congratulations</h2>
+				<p class="title-text">Congratulations, you have been placed on table <%= @table_number %>. 
 			</div>
 			<div class='row'>		
 				<div class='col-sm-3'>

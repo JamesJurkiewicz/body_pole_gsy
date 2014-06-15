@@ -56,23 +56,26 @@ end
 
 post '/table_plan' do
 
-  puts "received post"
-  puts params[:name]
-  puts params[:table]
-
   name=params[:name]
   table_number=params[:table]
-  @diner=Person.new(:name => name, :table => table_number)
-  @diner.save
-  puts @diner
+  @table_number=table_number.to_s
+
+  if Person.where(:table => table_number).count == 10
+    @table_number=table_number.to_s
+    erb:table_plan_fail
+
+  else
+    @diner=Person.new(:name => name, :table => table_number)
+    @diner.save
+
+  end
   #table_number=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   #table_number.each do |a|
     #a=a.string
-    @persons=Person.where(:table=>"1") 
-    puts @persons
+
   #end
 
-  erb:table_plan
+  erb:table_plan_success
 end
 
 if settings.environment == :production
