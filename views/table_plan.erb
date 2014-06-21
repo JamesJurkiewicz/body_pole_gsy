@@ -64,6 +64,13 @@
 									<option value=10>10</option>
 									<option value=11>11</option>
 									<option value=12>12</option>
+									<option value=13>12</option>
+									<option value=14>14</option>
+									<option value=15>15</option>
+									<option value=16>16</option>
+									<option value=17>17</option>
+									<option value=18>18</option>
+									<option value=19>19</option>
 									</select>
 
 					<br>
@@ -276,6 +283,131 @@
 					  		
 					  	<%else 
 				  			@persons= Person.where(:table => 12)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+			</div>	
+			<hr>
+			<div class='row'>		
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 13</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 13).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 13)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 14</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 14).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 14)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 15</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 15).count == 0 %>
+					  	
+					  	<%else 
+				  			@persons= Person.where(:table => 15)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-3'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 16</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 16).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 16)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+			</div>	
+			<hr>
+			<div class='row'>		
+				<div class='col-sm-4'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 17</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 17).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 17)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-4'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 18</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 18).count == 0 %>
+					  		
+					  	<%else 
+				  			@persons= Person.where(:table => 18)
+					     	@persons.each do |p| %>
+					      		<tr><td><%= p.name %></td></tr>
+					    	<% end %>
+						<% end %>
+					  </tbody>
+					</table>
+				</div>
+				<div class='col-sm-4'>
+					<table class='table'>
+					  <thead>
+					    <tr><th>Table 19</th>
+					  </thead>
+					  <tbody>
+					  	<% if Person.where(:table => 19).count == 0 %>
+					  	
+					  	<%else 
+				  			@persons= Person.where(:table => 19)
 					     	@persons.each do |p| %>
 					      		<tr><td><%= p.name %></td></tr>
 					    	<% end %>

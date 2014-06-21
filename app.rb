@@ -60,7 +60,7 @@ post '/table_plan' do
   table_number=params[:table]
   @table_number=table_number.to_s
 
-  if Person.where(:table => table_number).count == 10
+  if Person.where(:table => table_number).count == 12
     @table_number=table_number.to_s
   erb:table_plan_fail
 
