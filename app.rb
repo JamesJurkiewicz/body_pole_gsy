@@ -124,7 +124,7 @@ post '/ticket_form' do
     end
     ws.save
 
-    if ws.num_rows<=133
+    if ws.num_rows<=105
     
       Pony.mail( :to => ticket['email'],
             :bcc => "administrator@bridgeofsighsball.co.uk",
