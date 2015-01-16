@@ -1,3 +1,4 @@
+=begin
 require 'mongoid'
 require 'csv'
 
@@ -11,6 +12,18 @@ class Booked_clients
   field :phone, type: String
   field :disclaimer, type: String
   field :terms, type: String
+ 
+end
+=end
+
+require 'mongoid'
+require 'csv'
+
+class Person
+  include Mongoid::Document
+
+  field :name,  type: String
+  field :table, type: String
  
 end
  
