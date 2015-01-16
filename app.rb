@@ -3,166 +3,296 @@ require 'mongoid'
 require 'pony'
 require 'json'
 require 'rubygems'
-require 'google_drive'
+#require 'google_drive'
 
  require './person'
 
 # Setup database connection
 Mongoid.load!("mongoid.yml")
 #Person.destroy_all
+
 get '/'  do
   erb :index
 end
 
-get '/homepage' do
-	erb:homepage
+get '/test' do
+  erb :test3
 end
 
-get '/sponsorship' do
-	erb:sponsorship
+get '/pole_and_fitness' do
+  erb :pole_and_fitness
 end
 
-get '/the_ball' do
-	erb:the_ball
+get '/index'  do
+  erb :index
 end
 
-get '/index' do
-	erb:index
+get '/about_us'  do
+  erb :about_us
 end
 
-get '/tickets' do
-	erb:tickets
+get '/location'  do
+  erb :location
 end
 
-get '/contact' do
-	erb:contact
+get '/classes'  do
+  erb :classes
 end
 
-get '/table_plan' do
- # table_number=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-  #table_number.each do |a|
-    #a=a.string
-   # @table=Person.where(:table=>"a") 
-   # puts @table
-  #end
-  @table= Person.all
-	erb:table_plan
+get '/instructors'  do
+  erb :instructors
 end
 
-get '/ticket_form' do
-  erb:ticket_form
+get '/information' do 
+  erb :information
 end
 
-
-post '/table_plan' do
-
-  name=params[:name]
-  table_number=params[:table]
-  @table_number=table_number.to_s
-
-  if Person.where(:table => table_number).count == 12
-    @table_number=table_number.to_s
-  erb:table_plan_fail
-
-  else
-    @diner=Person.new(:name => name, :table => table_number)
-    @diner.save
-    erb:table_plan_success
-  end
-  #table_number=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-  #table_number.each do |a|
-    #a=a.string
-  #end
+get '/disclaimer' do 
+  erb :disclaimer
 end
 
-if settings.environment == :production
-  # if we're on heroku, use the sendgrid settings
-  require './production_pony_options'
-else
-  # otherwise, use our normal email account
-  require './development_pony_options'
+get '/party' do 
+  erb :party
 end
 
-post '/ticket_form' do
+get '/conditions' do 
+  erb :conditions
+end
 
-  ticket = {'name' => params[:name], 'email' => params[:email], 'college' => params[:college], 'tickets' => params[:tickets], 'status' => params[:status], 'age' => params[:age], 'ref_num' => rand(1000000)}
-  puts ticket
-    if ticket['tickets']=="1"
-      @ticket_text= 'a ticket'
-     # @cost="260"
-    else 
-      @ticket_text= 'tickets'
-     # @cost= "130"
+get '/sign_up'  do
+
+  #only here to remember log in deets #session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
+  
+   # Creates a session.
+  session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
+  #session = GoogleDrive.login_with_oauth(access_token)
+  #First worksheet of
+  #https://docs.google.com/spreadsheets/d/1eiEXfZT4PNEdO3tScgJ1toQEwRxZdL_j5X12sNvnP8o/edit#gid=0
+  #session = GoogleDrive.login_with_oauth(access_token)
+  ws = session.spreadsheet_by_key("1G5UpwugCPQvUn5CYo17xnuQ8PiMk1y2E_1uGc5vc-XI").worksheets[0]
+
+  #ws = session.spreadsheet_by_key("1eiEXfZT4PNEdO3tScgJ1toQEwRxZdL_j5X12sNvnP8o").worksheets[0]
+
+  @jan_1_645 = ws[2,2]
+  @jan_1_745 = ws[3,2] 
+  @jan_2_7 = ws[4,2]
+  @jan_3_8 = ws[5,2] 
+  @jan_chor = ws[6,2] 
+
+  #   puts @jan_1
+  # @dancers= Booked_clients.all
+
+  erb :sign_up
+end
+
+get '/contact'  do
+  erb :contact
+end
+
+get '/gallery'  do
+  erb :gallery
+end
+
+get '/sign_in'  do
+  erb :sign_in
+end
+
+post '/sign_up' do
+
+  if params[:disclaimer]= "confirmed"
+    @classes = params[:class] 
+    @name=   params[:name].split.first.capitalize
+    @email=  params[:email]
+    @level=  params[:class].split[2]
+    @date=   params[:class].split.first
+
+    if params[:class].split[2]=1
+      @cost=85
+    else
+      @cost=92
+    end
+  
+=begin
+    @dancer=Booked_clients.new(:name => name, :email => email, :class => booked_class)
+    @dancer.save
+=end
+ 
+
+
+if @classes=="jan lvl 1 6:45pm"
+      i=2
+      elsif @classes=="jan lvl 1 7:45pm"
+      i=3
+     elsif @classes=="jan lvl 2 7pm"
+      i=4
+     elsif @classes=="jan lvl 3 8pm"
+      i=5
+     elsif @classes=="jan lvl choreography 6pm"
+      i=6
+    end
+    puts "THE VALUE FOR I AND SPREADSHEET VALUE ARE:"
+    puts i 
+    #puts p ws[i.to_i,8]
+
+
+    # Creates a session.
+     session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
+     #session = GoogleDrive.login_with_oauth(access_token)
+    ws = session.spreadsheet_by_key("1G5UpwugCPQvUn5CYo17xnuQ8PiMk1y2E_1uGc5vc-XI").worksheets[0]
+
+      @i=p ws[i.to_i,2].to_i
+      puts @i
+
+    if @i >= 1 
+      # Dumps all cells.
+      for row in ws.num_rows+1..ws.num_rows+1
+        for col in 1..ws.num_cols
+         ws[row, 1]= @name
+         ws[row, 2]=params[:name].split(' ',2).last.capitalize
+         ws[row, 3]= @email
+         ws[row, 4]= params[:phone]
+         ws[row, 5]= params[:class]
+         ws[row, 6]= params[:disclaimer]
+         ws[row, 7]= params[:terms]
+        end
+      end
+      ws.save
+
+
+
+    # email words:
+    if @classes=="jan lvl 1 6:45pm"
+      @day = "Thursday 5th March"
+    elsif @classes == "jan lvl 1 7:45pm"
+      @day = "Thursday 5th March"
+    else @day = "Friday 5th March"
     end
 
-  puts @ticket_text
-    @cost= (130*ticket['tickets'].to_i).to_s
-    @name= ticket['name'].split.first.capitalize
-    @reference = ticket['ref_num'].to_s
+      puts @day
+      @time= @classes.split.last
+      puts @time
+    if settings.environment == :production
+      # if we're on heroku, use the sendgrid settings
+      require './production_pony_options'
+    else
+      # otherwise, use our normal email account
+      require './development_pony_options'
+    end
 
-    # Logs in.
-    # You can also use OAuth. See document of
-    # GoogleDrive.login_with_oauth for details.
-    session = GoogleDrive.login("james.jurkiewicz12@gmail.com", "JboSelect1")
+    Pony.mail(
+      :to => @email,
+      :subject => "Body and Pole Guernsey confirmation",
+      :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_sheet.pdf" => File.read("public/Information_sheet.pdf"),"Information_sheet_level_2.pdf" => File.read("public/Information_sheet_level_2.pdf"),
 
-    # First worksheet of
-    # https://docs.google.com/spreadsheet/ccc?key=pz7XtlQC-PYx-jrVMJErTcg
-    ws = session.spreadsheet_by_key("0AtqrFUvZahtHdDZtU2ZPb2JLM1FWT2xEMXMwWmxtWlE").worksheets[0]
+        },
+
+      :via => 'smtp',
+      :from => 'Body & Pole Limited',
+      :via => :smtp,
+      :via_options => {
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => 'bodyandpole.gsy@gmail.com',
+        :password             => '9carryonbrynn99',
+        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+    })
+  erb :thankyou
+  else
+    erb :failure  
+  end
+end
+end
+
+
+post '/party' do
+  if params[:disclaimer]= "confirmed"
+    @classes = params[:class] 
+    @name=   params[:name].split.first.capitalize
+    @email=  params[:email]
+    @date=   params[:date]
+
+    if params[:party]="5 people"
+      @cost=125
+    else
+      @cost=200
+    end
+
+    # Creates a session.
+     session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
+    # session = GoogleDrive.login_with_oauth(access_token)
+    ws = session.spreadsheet_by_key("1db4X1TId_1Bl6Zs9zaCx-iEjoLZCJCFPnQAciE1ygs8").worksheets[0]
 
     # Dumps all cells.
     for row in ws.num_rows+1..ws.num_rows+1
       for col in 1..ws.num_cols
-       ws[row, 1]= ticket["name"]
-       ws[row, 2]= ticket["email"]
-       ws[row, 3]= ticket["college"]
-       ws[row, 4]= ticket["tickets"]
-       ws[row, 5]= ticket["status"]
-       ws[row, 6]= ticket["age"]
-       ws[row, 7]= ticket["ref_num"]
-       ws[row, 8]= "=getDateandTime()"
+       ws[row, 1]= @name
+       ws[row, 2]=params[:name].split(' ',2).last.capitalize
+       ws[row, 3]= @email
+       ws[row, 4]= params[:phone]
+       ws[row, 5]= params[:date]
+       ws[row, 6]= params[:party]
+       ws[row, 7]= params[:spa]
+       ws[row, 8]= params[:disclaimer]
+       ws[row, 9]= params[:terms]
       end
     end
     ws.save
 
-    if ws[4,13].to_i<=500 #133
-    
-      Pony.mail( :to => ticket['email'],
-            :bcc => "administrator@bridgeofsighsball.co.uk",
-            :subject => "Bridge of Sighs confirmation email",
-            :body => erb(:email, :layout => false)   )
-    else
-      Pony.mail( :to => ticket['email'],
-            :bcc => "administrator@bridgeofsighsball.co.uk",
-            :subject => "Bridge of Sighs confirmation email",
-            :body => erb(:email_reserve, :layout => false)   )      
-    end  
+    Pony.mail(
+      :to => @email,
+      :subject => "Body and Pole Gsy party confirmation",
+      :body => erb(:email_party, :layout => false),
+    # :bcc => anneka@...
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx")},
+      :via => 'smtp',
+      :from => 'Body & Pole Limited',
+      :via => :smtp,
+      :via_options => {
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => 'bodyandpole.gsy@gmail.com',
+        :password             => '9carryonbrynn99',
+        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+    })
+    erb :thankyou_party
 
-    # if ws.num_rows<=133
+  else 
+    erb :no_disclaimer
+  end
+end
 
-    #   Mail.defaults do
-    #       delivery_method :smtp, { :address   => "smtp.sendgrid.net",
-    #                        :port      => 587,
-    #                        :domain    => "bridgeofsighsball.com",
-    #                        :user_name => "tickets@bridgeofsighsball.com",
-    #                        :password  => "bosb4",
-    #                        :authentication => 'plain',
-    #                        :enable_starttls_auto => true }
-    #       end
+post '/contact' do
+  @classes = params[:class] 
+  @name=   params[:name]
+  @email=  params[:email]
+  @subject=  params[:subject]
+  @message=  params[:message]
 
-    #   mail = Mail.deliver do
-    #     to ticket['email']
-    #     from 'Bridge of Sighs Ball <tickets@bridgeofsighsball.co.uk>'
-    #     subject 'Ticket Sales'
-    #     text_part do
-    #       body 'HI'
-    #     end
-    #     html_part do
-    #       content_type 'text/html; charset=UTF-8'
-    #       body '<b>Hello world in HTML</b>'
-    #     end
-  
+  Pony.mail(
+    :to => @email,
+    :subject => "Body & Pole Gsy contact received",
+    :body => erb(:contact_email, :layout => false),
+    :bcc => 'bodyandpole.gsy@gmail.com',
+    :via => 'smtp',
+    :from => 'Body & Pole Limited',
+    :via => :smtp,
+    :via_options => {
+      :address              => 'smtp.gmail.com',
+      :port                 => '587',
+      :enable_starttls_auto => true,
+      :user_name            => 'bodyandpole.gsy@gmail.com',
+      :password             => '9carryonbrynn99',
+      :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+      :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+  })
 
-  erb :thankyou
+  erb :contact_thankyou
 end
 
 
