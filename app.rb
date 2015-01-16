@@ -82,13 +82,17 @@ get '/sign_in'  do
 end
 
 post '/sign_up' do
+
+=begin
     name=params[:name]
   table_number=params[:email]
       @diner=Booked_clients.new(:name => name, :table => table_number)
     @diner.save
-=begin
+=end
 
-  if params[:disclaimer]= "confirmed"
+
+
+ # if params[:disclaimer]= "confirmed"
     classes = params[:class] 
     name=   params[:name].split.first.capitalize
     email=  params[:email]
@@ -96,8 +100,13 @@ post '/sign_up' do
     date=   params[:class].split.first
     phone= params[:phone]
     disclaimer= params[:disc]
-    terms= [:terms]
+    terms= params[:terms]
+    amount= params[:amount]
 
+    @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
+    @dancer.save
+
+=begin
     if params[:class].split[2]=1
       @cost=85
     else

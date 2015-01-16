@@ -1,4 +1,4 @@
-=begin
+
 require 'mongoid'
 require 'csv'
 
@@ -12,9 +12,14 @@ class Booked_clients
   field :phone, type: String
   field :disclaimer, type: String
   field :terms, type: String
+  field :amount, type: String
  
 end
-=end
+
+=begin
+
+@dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
+
 
 require 'mongoid'
 require 'csv'
@@ -27,3 +32,4 @@ class Booked_clients
  
 end
  
+     @diner=Booked_clients.new(:name => name, :table => table_number)=end
