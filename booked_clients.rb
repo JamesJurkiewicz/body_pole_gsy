@@ -16,20 +16,4 @@ class Booked_clients
  
 end
 
-=begin
 
-@dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
-
-
-require 'mongoid'
-require 'csv'
-
-class Booked_clients
-  include Mongoid::Document
-
-  field :name,  type: String
-  field :table, type: String
- 
-end
- 
-     @diner=Booked_clients.new(:name => name, :table => table_number)=end

@@ -5,7 +5,7 @@ require 'rubygems'
 require 'mongoid'
 
 require './booked_clients'
-require './person'
+#require './person'
 
 Mongoid.load!("mongoid.yml")
 
