@@ -1,15 +1,12 @@
 require 'sinatra'
-require 'mongoid'
 require 'pony'
 require 'json'
 require 'rubygems'
-#require 'google_drive'
+require 'mongoid'
 
- require './person'
-
-# Setup database connection
+require './booked_clients'
 Mongoid.load!("mongoid.yml")
-#Person.destroy_all
+
 
 get '/'  do
   erb :index
@@ -26,6 +23,7 @@ end
 get '/index'  do
   erb :index
 end
+
 
 get '/about_us'  do
   erb :about_us
@@ -61,23 +59,7 @@ end
 
 get '/sign_up'  do
 
-  #only here to remember log in deets #session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
-  
-   # Creates a session.
-  session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
-  #session = GoogleDrive.login_with_oauth(access_token)
-  #First worksheet of
-  #https://docs.google.com/spreadsheets/d/1eiEXfZT4PNEdO3tScgJ1toQEwRxZdL_j5X12sNvnP8o/edit#gid=0
-  #session = GoogleDrive.login_with_oauth(access_token)
-  ws = session.spreadsheet_by_key("1G5UpwugCPQvUn5CYo17xnuQ8PiMk1y2E_1uGc5vc-XI").worksheets[0]
-
-  #ws = session.spreadsheet_by_key("1eiEXfZT4PNEdO3tScgJ1toQEwRxZdL_j5X12sNvnP8o").worksheets[0]
-
-  @jan_1_645 = ws[2,2]
-  @jan_1_745 = ws[3,2] 
-  @jan_2_7 = ws[4,2]
-  @jan_3_8 = ws[5,2] 
-  @jan_chor = ws[6,2] 
+@signups= Booked_clients.all
 
   #   puts @jan_1
   # @dancers= Booked_clients.all
@@ -100,11 +82,14 @@ end
 post '/sign_up' do
 
   if params[:disclaimer]= "confirmed"
-    @classes = params[:class] 
-    @name=   params[:name].split.first.capitalize
-    @email=  params[:email]
-    @level=  params[:class].split[2]
-    @date=   params[:class].split.first
+    classes = params[:class] 
+    name=   params[:name].split.first.capitalize
+    email=  params[:email]
+    level=  params[:class].split[2]
+    date=   params[:class].split.first
+    phone= params[:phone]
+    disclaimer= params[:disc]
+    terms= [:terms]
 
     if params[:class].split[2]=1
       @cost=85
@@ -112,53 +97,8 @@ post '/sign_up' do
       @cost=92
     end
   
-=begin
-    @dancer=Booked_clients.new(:name => name, :email => email, :class => booked_class)
+    @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms)
     @dancer.save
-=end
- 
-
-
-if @classes=="jan lvl 1 6:45pm"
-      i=2
-      elsif @classes=="jan lvl 1 7:45pm"
-      i=3
-     elsif @classes=="jan lvl 2 7pm"
-      i=4
-     elsif @classes=="jan lvl 3 8pm"
-      i=5
-     elsif @classes=="jan lvl choreography 6pm"
-      i=6
-    end
-    puts "THE VALUE FOR I AND SPREADSHEET VALUE ARE:"
-    puts i 
-    #puts p ws[i.to_i,8]
-
-
-    # Creates a session.
-     session = GoogleDrive.login("bodyandpole.gsy@gmail.com", "9carryonbrynn99")
-     #session = GoogleDrive.login_with_oauth(access_token)
-    ws = session.spreadsheet_by_key("1G5UpwugCPQvUn5CYo17xnuQ8PiMk1y2E_1uGc5vc-XI").worksheets[0]
-
-      @i=p ws[i.to_i,2].to_i
-      puts @i
-
-    if @i >= 1 
-      # Dumps all cells.
-      for row in ws.num_rows+1..ws.num_rows+1
-        for col in 1..ws.num_cols
-         ws[row, 1]= @name
-         ws[row, 2]=params[:name].split(' ',2).last.capitalize
-         ws[row, 3]= @email
-         ws[row, 4]= params[:phone]
-         ws[row, 5]= params[:class]
-         ws[row, 6]= params[:disclaimer]
-         ws[row, 7]= params[:terms]
-        end
-      end
-      ws.save
-
-
 
     # email words:
     if @classes=="jan lvl 1 6:45pm"
@@ -205,7 +145,7 @@ if @classes=="jan lvl 1 6:45pm"
     erb :failure  
   end
 end
-end
+
 
 
 post '/party' do
@@ -294,6 +234,3 @@ post '/contact' do
 
   erb :contact_thankyou
 end
-
-
-	
