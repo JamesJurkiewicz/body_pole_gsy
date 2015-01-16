@@ -81,6 +81,10 @@ end
 
 post '/sign_up' do
 
+      @diner=Person.new(:name => name, :table => table_number)
+    @diner.save
+=begin
+
   if params[:disclaimer]= "confirmed"
     classes = params[:class] 
     name=   params[:name].split.first.capitalize
@@ -97,7 +101,7 @@ post '/sign_up' do
       @cost=92
     end
   
-    @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms)
+    @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
     @dancer.save
 
     # email words:
@@ -140,10 +144,14 @@ post '/sign_up' do
         :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
     })
+=end
+
   erb :thankyou
+=begin
   else
     erb :failure  
-  end
+=end
+  
 end
 
 
