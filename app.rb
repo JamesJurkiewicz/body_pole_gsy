@@ -5,6 +5,8 @@ require 'rubygems'
 require 'mongoid'
 
 require './booked_clients'
+require './person'
+
 Mongoid.load!("mongoid.yml")
 
 
@@ -80,7 +82,8 @@ get '/sign_in'  do
 end
 
 post '/sign_up' do
-
+    name=params[:name]
+  table_number=params[:email]
       @diner=Person.new(:name => name, :table => table_number)
     @diner.save
 =begin
