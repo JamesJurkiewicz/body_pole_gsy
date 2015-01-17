@@ -29,6 +29,7 @@ class Booked_clients
   field :disclaimer, type: String
   field :terms, type: String
   field :amount, type: String
+  field :classes, type: String
 end
  
 

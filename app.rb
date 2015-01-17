@@ -84,15 +84,16 @@ end
 post '/sign_up' do
 
 
-    name=params[:name]
+  name=params[:name]
   email=params[:email]
   phone=params[:phone] 
   disclaimer= params[:disclaimer]
   terms= params[:terms]
   amount= params[:amount]
-  
-      @diner=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount)
-    @diner.save
+  classes = params[:class] 
+    
+  @diner=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :classes => classes)
+  @diner.save
 
 
 
