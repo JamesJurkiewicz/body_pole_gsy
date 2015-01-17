@@ -26,7 +26,9 @@ class Booked_clients
   field :name,  type: String
   field :table, type: String
   field :phone, type: String
- 
+  field :disclaimer, type: String
+  field :terms, type: String
+  field :amount, type: String
 end
  
 
