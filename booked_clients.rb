@@ -20,7 +20,7 @@ end
 require 'mongoid'
 require 'csv'
 
-class Person
+class Booked_clients
   include Mongoid::Document
 
   field :name,  type: String
