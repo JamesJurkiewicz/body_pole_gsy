@@ -94,7 +94,8 @@ post '/sign_up' do
 
  # if params[:disclaimer]= "confirmed"
     classes = params[:class] 
-    name=   params[:name].split.first.capitalize
+    name=   params[:name]
+    #.split.first.capitalize
     email=  params[:email]
     level=  params[:class].split[2]
     date=   params[:class].split.first
@@ -103,7 +104,8 @@ post '/sign_up' do
     terms= params[:terms]
     amount= params[:amount]
 
-    @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
+    @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone)
+    #, :disclaimer => disclaimer, :terms => terms, :amount => amount)
     @dancer.save
 
 =begin
