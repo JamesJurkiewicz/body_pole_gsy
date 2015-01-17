@@ -86,7 +86,8 @@ post '/sign_up' do
 
     name=params[:name]
   table_number=params[:email]
-      @diner=Booked_clients.new(:name => name, :table => table_number)
+  phone=params[:phone] 
+      @diner=Booked_clients.new(:name => name, :table => table_number, :phone => phone)
     @diner.save
 
 
