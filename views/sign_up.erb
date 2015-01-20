@@ -1,6 +1,6 @@
 <head>
    <title>Body and Pole Guernsey</title>
-   <link rel="stylesheet" href="/dist/css/signup1.css">
+   <link rel="stylesheet" href="/dist/css/signup.css">
 </head>
 
 <div class="container">
@@ -18,14 +18,14 @@
 			<div class="ticket-form">
 				<div class="inner-form">
 					<p>Please complete the following form to book a place on one of our January courses. Prices shown are for a course of 6 consecutive weeks, starting on the day given. You will be emailed a confirmation as soon as the form is submitted, and will receive a link in the next 24 hours with payment details.</p>
-				<form role='form' method="post" class='form-inline' action="https://secure.worldpay.com/wcc/purchase"> 
+				<form role='form' method="post" class='form-inline' action="https://secure.worldpay.com/wcc/purchase" onSubmit="return validate_form(document.BuyForm);"> 
 
 						 <input type="hidden" name="testMode" value="100"> 
 						<!-- These first four elements are mandatory. -->
 						<input type="hidden" name="instId" value="1024645">
 						<input type="hidden" name="cartId" value="Pole lesson">
 						<input type="hidden" name="currency" value="GBP">
-						<input type="hidden" name="amount" value="0.10">
+						<input type="hidden" name="amount" value="92.00">
 
 						<!-- These elements below are optional. -->
 
@@ -151,10 +151,10 @@
 							  	Announcing soon
 							  </td>					  
 							  <td>
-									20:00-21:00				
+								Announcing soon			
 							  </td>
 							  <td>
-									£92			
+												
 							  </td>						  
 							  <td>
 									<%= @jan_3_8	%>
@@ -175,10 +175,10 @@
 							  	Announcing soon
 							  </td>					  
 							  <td>
-									18:00-19:00				
+									Announcing soon				
 							  </td>
 							  <td>
-									£92				
+												
 							  </td>
 							  <td>
 									<%= @jan_chor	%>
@@ -209,14 +209,18 @@
 						    }
 						    document.getElementById("demo").innerHTML = x;
 						}
-/*
-						function calc(productNo) {
-							if (@productNo==1) {
-								document.BuyForm.amount.value = 92.00;
-							else 
+
+						function calc(class) {
+							if (class=="march_level_1_745pm") {
 								document.BuyForm.amount.value = 85.00;
+							else 
+								document.BuyForm.amount.value = 92.00;
 							}
 						}
+
+						function validate_form(x)
+						
+						{
 						</script>
 			    	</form>
 				</div>
