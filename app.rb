@@ -172,8 +172,11 @@ post '/sign_up' do
 =end
   erb :thankyou
 
-  else
-    erb :failure  
+=begin
+ else
+    erb :failure 
+=end
+ 
 
   
 end
