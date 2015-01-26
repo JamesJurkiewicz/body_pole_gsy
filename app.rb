@@ -169,11 +169,11 @@ post '/sign_up' do
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
     })
 
-
+=end
   erb :thankyou
-=begin
+
   else
     erb :failure  
-=end
+
   
 end
