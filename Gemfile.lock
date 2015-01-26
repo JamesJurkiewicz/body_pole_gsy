@@ -64,7 +64,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  google_drive
   mongo
   mongoid
   pony
