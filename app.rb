@@ -1,13 +1,13 @@
-require 'sinatra'
-require 'pony'
-require 'json'
+#require 'sinatra'
+#require 'pony'
+#require 'json'
 require 'rubygems'
-require 'mongoid'
+#require 'mongoid'
 
 #require './booked_clients'
 
 
-Mongoid.load!("mongoid.yml")
+#Mongoid.load!("mongoid.yml")
 
 
 get '/'  do
