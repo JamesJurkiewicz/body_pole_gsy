@@ -90,7 +90,16 @@ post '/sign_up' do
   amount= params[:amount]
   group = params[:group] 
     
-
+def self.uri
+     if Worldpay.test?
+-      "https://select-test.wp3.rbsworldpay.com/wcc/purchase"
++      "https://select-test.worldpay.com/wcc/purchase"
+     else
+-      "https://secure.wp3.rbsworldpay.com/wcc/purchase"
++      "https://secure.worldpay.com/wcc/purchase"
+     end
+   end
+   
   @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :group => group)
   @dancer.save
 
