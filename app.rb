@@ -90,12 +90,17 @@ post '/sign_up' do
   disclaimer= params[:disclaimer]
   terms= params[:terms]
   amount= params[:amount]
-  classes = params[:class] 
+  group = params[:group] 
     
-  @diner=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :classes => classes)
-  @diner.save
 
+  @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :group => group)
+  @dancer.save
 
+=begin
+
+    @diner=Booked_clients.new(:name => name)
+    @diner.save
+=end
 
 
  # if params[:disclaimer]= "confirmed"
