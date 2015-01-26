@@ -62,7 +62,7 @@ end
 
 get '/sign_up'  do
 
-@signups= Booked_clients.all
+#@signups= Booked_clients.all
 
   #   puts @jan_1
   # @dancers= Booked_clients.all
