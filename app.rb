@@ -1,7 +1,7 @@
 #require 'sinatra'
 #require 'pony'
 #require 'json'
-require 'rubygems'
+#require 'rubygems'
 #require 'mongoid'
 
 #require './booked_clients'
