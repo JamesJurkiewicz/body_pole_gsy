@@ -84,8 +84,7 @@
 									£85				
 							  </td>
 							  <td>
-									<%= @mar_1_645= Booked_clients.where( :group => "march_level_1_645pm")	%>
-									<%= (10 - @mar_1_645.to_i %>		
+									<%= 10- Booked_clients.where( :group => "march_level_1_645pm").count	%>	
 							  </td>
 							  <td>      
 							  </td>
