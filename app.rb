@@ -94,7 +94,7 @@ post '/sign_up' do
   @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :group => group)
   @dancer.save
 
-
+   @name=params[:name]
 
 
  # if params[:disclaimer]= "confirmed"
@@ -123,6 +123,8 @@ post '/sign_up' do
     @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
     @dancer.save
 =end
+=begin
+
     # email words:
     if group=="jan lvl 1 6:45pm"
       @day = "Thursday 5th March"
@@ -163,9 +165,10 @@ post '/sign_up' do
         :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
     })
-
 =end
-  erb :thankyou
+
+
+  erb :payment
 
 =begin
  else
@@ -173,82 +176,3 @@ post '/sign_up' do
 =end
 end
 
-post '/party' do
-  if params[:disclaimer]= "confirmed"
-    @groups = params[:group] 
-    @name=   params[:name].split.first.capitalize
-    @email=  params[:email]
-    @date=   params[:date]
-
-    if params[:party]="5 people"
-      @cost=125
-    else
-      @cost=200
-    end
-
-
-    name=params[:name]
-    email=params[:email]
-    phone=params[:phone] 
-    disclaimer= params[:disclaimer]
-    terms= params[:terms]
-    amount= params[:amount]
-    group = params[:group] 
-      
-
-    @party=Party.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :group => group)
-    @party.save
-
-
-    Pony.mail(
-      :to => @email,
-      :subject => "Body and Pole Gsy party confirmation",
-      :body => erb(:email_party, :layout => false),
-    # :bcc => anneka@...
-      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx")},
-      :via => 'smtp',
-      :from => 'Body & Pole Limited',
-      :via => :smtp,
-      :via_options => {
-        :address              => 'smtp.gmail.com',
-        :port                 => '587',
-        :enable_starttls_auto => true,
-        :user_name            => 'bodyandpole.gsy@gmail.com',
-        :password             => '9carryonbrynn99',
-        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-    })
-    erb :thankyou_party
-
-  else 
-    erb :no_disclaimer
-  end
-end
-
-post '/contact' do
-  @classes = params[:class] 
-  @name=   params[:name]
-  @email=  params[:email]
-  @subject=  params[:subject]
-  @message=  params[:message]
-
-  Pony.mail(
-    :to => @email,
-    :subject => "Body & Pole Gsy contact received",
-    :body => erb(:contact_email, :layout => false),
-    :bcc => 'bodyandpole.gsy@gmail.com',
-    :via => 'smtp',
-    :from => 'Body & Pole Limited',
-    :via => :smtp,
-    :via_options => {
-      :address              => 'smtp.gmail.com',
-      :port                 => '587',
-      :enable_starttls_auto => true,
-      :user_name            => 'bodyandpole.gsy@gmail.com',
-      :password             => '9carryonbrynn99',
-      :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-      :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-  })
-
-  erb :contact_thankyou
-end
