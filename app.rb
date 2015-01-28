@@ -95,7 +95,7 @@ post '/sign_up' do
   @dancer.save
 
    @name=params[:name]
-
+   @email=params[:email]
 
  # if params[:disclaimer]= "confirmed"
     # classes = params[:class] 
