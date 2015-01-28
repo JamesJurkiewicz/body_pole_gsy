@@ -1,0 +1,41 @@
+<head>
+   <title>Body and Pole Guernsey</title>
+   <link rel="stylesheet" href="/dist/css/signup.css">
+</head>
+
+<div class="container">
+	<h1>Payment</h1>
+	<h2>Thank you for signing up, please click below to be taken through to our payment pages via world pay. </h2>
+	
+	<div class="container-inner">	
+		<center>		
+			<div class="ticket-form">
+				<div class="inner-form">
+					
+					<form role='form' method="post" class='form-inline' action="https://secure.worldpay.com/wcc/purchase" >
+
+						 <!-- <input type="hidden" name="testMode" value="100"> --> 
+						<!-- These first four elements are mandatory. -->
+						<input type="hidden" name="instId" value="1024645">
+						<input type="hidden" name="cartId" value="Pole dancing course">
+						<input type="hidden" name="currency" value="GBP">
+						<input type="hidden" name="amount" value="85.00">
+						<!--<input type="hidden" name="name" value=<<%= @name %>	>
+						<!-- These elements below are optional. -->
+
+			    		
+
+			    		<button type="submit" class='btn btn-success' onclick="alert()" onclick="calculate(this.form)">Confirm Booking</button>
+
+
+						<script>
+
+						
+						</script>
+			    	</form>
+				</div>
+			</div>
+		</center> 
+    </div>
+</div>
+
