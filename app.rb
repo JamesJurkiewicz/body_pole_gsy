@@ -167,8 +167,12 @@ post '/sign_up' do
     })
 =end
 
-
-  erb :payment
+if group="march_level_2_7pm"
+  @amount = "92.00"
+else
+  @amount = "85.00"
+end
+erb :payment
 
 =begin
  else
