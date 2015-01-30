@@ -97,14 +97,14 @@ post '/sign_up' do
     # email words:
     if group=="march_level_1 6:45pm"
       @day = "Thursday 5th March"
-      @amount="85.00"
+      @amount=85.00
       @level= "1"
     elsif group == "march_level_1 7:45pm"
       @day = "Thursday 5th March"
-      @amount="85.00"
+      @amount=85.00
     else 
       @day = "Friday 5th March"
-      @amount="92.00"
+      @amount=92.00
       @level= "2"
     end
 
@@ -123,7 +123,7 @@ post '/sign_up' do
       require './development_pony_options'
     end
 
-    if @amount == "85.00"
+    if @amount == 85.00
       Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
