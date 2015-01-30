@@ -90,7 +90,7 @@ post '/sign_up' do
   amount= params[:amount]
   group = params[:group] 
 
-  @name=params[:name].split.capitalize
+  @name=params[:name]
   @email=params[:email]
   @group = params[:group]
 
