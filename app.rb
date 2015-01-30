@@ -129,7 +129,7 @@ post '/sign_up' do
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information Sheet Body & Pole LVL 1.pdf" => File.read("public/Information Sheet Body & Pole LVL 1.pdf"),
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_Sheet_Body_Pole_LVL_1.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_1.pdf"),
 
         },
 
@@ -152,7 +152,7 @@ post '/sign_up' do
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information Sheet Body & Pole LVL 2.pdf" => File.read("public/Information Sheet Body & Pole LVL 2.pdf"),
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_Sheet_Body_Pole_LVL_2.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_2.pdf"),
 
         },
 
