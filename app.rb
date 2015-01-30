@@ -112,7 +112,7 @@ post '/sign_up' do
       puts @day
       @time= @group.split.last
       puts @time
-      
+
     if settings.environment == :production
       # if we're on heroku, use the sendgrid settings
       require './production_pony_options'
@@ -145,7 +145,7 @@ post '/sign_up' do
       })
 
     else 
-       Pony.mail(
+      Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
@@ -165,7 +165,8 @@ post '/sign_up' do
         :password             => '9carryonbrynn99',
         :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-    })
+      })
+    end
 
 erb :payment
 
