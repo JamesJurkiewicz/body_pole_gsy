@@ -144,7 +144,7 @@ post '/sign_up' do
       require './development_pony_options'
     end
 
-  if group="march_level_2_7pm"
+  if group=="march_level_2_7pm"
     @amount = "92.00"
     Pony.mail(
       :to => @email,
@@ -189,6 +189,8 @@ else
         :password             => '9carryonbrynn99',
         :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+                      },
+    )                  
 end
 erb :payment
 
