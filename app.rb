@@ -89,10 +89,6 @@ post '/sign_up' do
   terms= params[:terms]
   amount= params[:amount]
   group = params[:group] 
-    
-
-  @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :group => group)
-  @dancer.save
 
   @name=params[:name]
   @email=params[:email]
@@ -101,14 +97,22 @@ post '/sign_up' do
     # email words:
     if group=="march_level_1 6:45pm"
       @day = "Thursday 5th March"
+      @amount=85.00
     elsif group == "march_level_1 7:45pm"
       @day = "Thursday 5th March"
-    else @day = "Friday 5th March"
+      @amount=85.00
+    else 
+      @day = "Friday 5th March"
+      @amount=92.00
     end
+
+    @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
+    @dancer.save
 
       puts @day
       @time= @group.split.last
       puts @time
+      
     if settings.environment == :production
       # if we're on heroku, use the sendgrid settings
       require './production_pony_options'
@@ -117,7 +121,51 @@ post '/sign_up' do
       require './development_pony_options'
     end
 
+    if @amount == 85.00
+      Pony.mail(
+      :to => @email,
+      :subject => "Body and Pole Guernsey confirmation",
+      :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_sheet_level_1.pdf" => File.read("public/Information_sheet_level_1.pdf"),
 
+        },
+
+      :via => 'smtp',
+      :from => 'Body & Pole Limited',
+      :via => :smtp,
+      :via_options => {
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => 'bodyandpole.gsy@gmail.com',
+        :password             => '9carryonbrynn99',
+        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+      })
+
+    else 
+       Pony.mail(
+      :to => @email,
+      :subject => "Body and Pole Guernsey confirmation",
+      :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_sheet.pdf" => File.read("public/Information_sheet.pdf"),"Information_sheet_level_2.pdf" => File.read("public/Information_sheet_level_2.pdf"),
+
+        },
+
+      :via => 'smtp',
+      :from => 'Body & Pole Limited',
+      :via => :smtp,
+      :via_options => {
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => 'bodyandpole.gsy@gmail.com',
+        :password             => '9carryonbrynn99',
+        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+    })
 
 erb :payment
 
