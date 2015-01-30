@@ -94,8 +94,8 @@ post '/sign_up' do
   @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => amount, :group => group)
   @dancer.save
 
-   @name=params[:name]
-   @email=params[:email]
+  @name=params[:name]
+  @email=params[:email]
 
  # if params[:disclaimer]= "confirmed"
     # classes = params[:class] 
@@ -123,7 +123,7 @@ post '/sign_up' do
     @dancer=Booked_clients.new(:name => name, :email => email, :class => classes, :phone => phone, :disclaimer => disclaimer, :terms => terms, :amount => amount)
     @dancer.save
 =end
-=begin
+
 
     # email words:
     if group=="jan lvl 1 6:45pm"
@@ -144,12 +144,14 @@ post '/sign_up' do
       require './development_pony_options'
     end
 
+  if group="march_level_2_7pm"
+    @amount = "92.00"
     Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_sheet.pdf" => File.read("public/Information_sheet.pdf"),"Information_sheet_level_2.pdf" => File.read("public/Information_sheet_level_2.pdf"),
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information Sheet Body & Pole LVL 2.pdf" => File.read("public/Information Sheet Body & Pole LVL 2.pdf"),
 
         },
 
@@ -165,12 +167,28 @@ post '/sign_up' do
         :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
     })
-=end
-
-if group="march_level_2_7pm"
-  @amount = "92.00"
 else
   @amount = "85.00"
+    Pony.mail(
+      :to => @email,
+      :subject => "Body and Pole Guernsey confirmation",
+      :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information Sheet Body & Pole LVL 1.pdf" => File.read("public/Information Sheet Body & Pole LVL 1.pdf"),
+
+        },
+
+      :via => 'smtp',
+      :from => 'Body & Pole Limited',
+      :via => :smtp,
+      :via_options => {
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => 'bodyandpole.gsy@gmail.com',
+        :password             => '9carryonbrynn99',
+        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
 end
 erb :payment
 
