@@ -144,6 +144,7 @@ post '/sign_up' do
       require './development_pony_options'
     end
 
+=begin
   if group=="march_level_2_7pm"
     @amount = "92.00"
     Pony.mail(
@@ -191,7 +192,9 @@ else
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
                       },
     )                  
-end
+ end
+=end
+
 erb :payment
 
 =begin
