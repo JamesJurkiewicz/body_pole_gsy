@@ -90,20 +90,22 @@ post '/sign_up' do
   amount= params[:amount]
   group = params[:group] 
 
-  @name=params[:name]
+  @name=params[:name].split.capitalize
   @email=params[:email]
   @group = params[:group]
 
     # email words:
     if group=="march_level_1 6:45pm"
       @day = "Thursday 5th March"
-      @amount=85.00
+      @amount="85.00"
+      @level= "1"
     elsif group == "march_level_1 7:45pm"
       @day = "Thursday 5th March"
-      @amount=85.00
+      @amount="85.00"
     else 
       @day = "Friday 5th March"
-      @amount=92.00
+      @amount="92.00"
+      @level= "2"
     end
 
     @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
@@ -121,13 +123,13 @@ post '/sign_up' do
       require './development_pony_options'
     end
 
-    if @amount == 85.00
+    if @amount == "85.00"
       Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_sheet_level_1.pdf" => File.read("public/Information_sheet_level_1.pdf"),
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information Sheet Body & Pole LVL 1.pdf" => File.read("public/Information Sheet Body & Pole LVL 1.pdf"),
 
         },
 
@@ -150,7 +152,7 @@ post '/sign_up' do
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information_sheet.pdf" => File.read("public/Information_sheet.pdf"),"Information_sheet_level_2.pdf" => File.read("public/Information_sheet_level_2.pdf"),
+      :attachments => {"H&F_Declaration.docx" => File.read("public/H&F_Declaration.docx"),"Information Sheet Body & Pole LVL 2.pdf" => File.read("public/Information Sheet Body & Pole LVL 2.pdf"),
 
         },
 
