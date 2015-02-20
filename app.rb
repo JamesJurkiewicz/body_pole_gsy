@@ -150,8 +150,31 @@ post '/sign_up' do
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
       })
 
-    else 
+    elsif group == "march_choreography 6:45pm"
       Pony.mail(
+      :to => @email,
+      :subject => "Body and Pole Guernsey confirmation",
+      :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+:attachments => {"Pole Fitness and Health and Safety declaration choreography.pdf" => File.read("public/Pole Fitness and Health and Safety declaration choreography.pdf"),"Information Sheet Body Pole Choreography.pdf" => File.read("public/Information Sheet Body Pole Choreography.pdf"),"Disclaimer choreography.pdf" => File.read("public/Disclaimer choreography.pdf"),
+
+        },
+
+      :via => 'smtp',
+      :from => 'Body & Pole Limited',
+      :via => :smtp,
+      :via_options => {
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => 'bodyandpole.gsy@gmail.com',
+        :password             => '9carryonbrynn99',
+        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+      })
+
+    else 
+         Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
