@@ -101,9 +101,13 @@ post '/sign_up' do
       @level= "1"
     elsif group == "march_level_1 7:45pm"
       @day = "Thursday 5th March"
-      @amount=85.00
+      @amount=85.00 
+    elsif group == "march_choreography 6:45pm"
+      @day = "Friday 6th March"
+      @amount = 92.00
+      @level= "2 and above choreography"
     else 
-      @day = "Friday 5th March"
+      @day = "Friday 6th March"
       @amount=92.00
       @level= "2"
     end
