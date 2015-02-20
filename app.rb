@@ -150,13 +150,13 @@ post '/sign_up' do
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
       })
 
-    elsif group == "march_choreography 6:45pm"
+    elsif @level= "2 and above choreography"
       Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-:attachments => {"Pole Fitness and Health and Safety declaration choreography.pdf" => File.read("public/Pole Fitness and Health and Safety declaration choreography.pdf"),"Information Sheet Body Pole Choreography.pdf" => File.read("public/Information Sheet Body Pole Choreography.pdf"),"Disclaimer choreography.pdf" => File.read("public/Disclaimer choreography.pdf"),
+      :attachments => {"Pole Fitness and Health and Safety declaration choreography.pdf" => File.read("public/Pole Fitness and Health and Safety declaration choreography.pdf"),"Information Sheet Body Pole Choreography.pdf" => File.read("public/Information Sheet Body Pole Choreography.pdf"),"Disclaimer choreography.pdf" => File.read("public/Disclaimer choreography.pdf"),
 
         },
 
@@ -179,7 +179,7 @@ post '/sign_up' do
       :subject => "Body and Pole Guernsey confirmation",
       :body => erb(:email, :layout => false),
     # :bcc => anneka@...
-:attachments => {"Pole Fitness and Health and Safety declaration.pdf" => File.read("public/Pole Fitness and Health and Safety declaration.pdf"),"Information_Sheet_Body_Pole_LVL_2.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_2.pdf"),"Disclaimer.pdf" => File.read("public/Disclaimer.pdf"),
+      :attachments => {"Pole Fitness and Health and Safety declaration.pdf" => File.read("public/Pole Fitness and Health and Safety declaration.pdf"),"Information_Sheet_Body_Pole_LVL_2.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_2.pdf"),"Disclaimer.pdf" => File.read("public/Disclaimer.pdf"),
 
         },
 
