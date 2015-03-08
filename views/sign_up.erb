@@ -69,22 +69,22 @@
 							  </td>
 							  <td>
 							  	<!--Booking available soon! -->
-									<input type="radio"  name="group" value="march_level_1 6:45pm"> 
+									<input type="radio"  name="group" value="april_level_1 6:30pm"> 
 							  </td> 
 							  <td>
 								Level 1
 							  </td>
 							  <td>
-							  	Thursday 5th March
+							  	Thursday 30th April
 							  </td>					  
 							  <td>
-									18:45-19:45				
+									18:30-19:30				
 							  </td>
 							  <td>
 									£85				
 							  </td>
 							  <td>
-									<%= 10- Booked_clients.where( :group => "march_level_1 6:45pm").count	%>	
+									<%= 10- Booked_clients.where( :group => "april_level_1 6:30pm").count	%>	
 							  </td>
 							  <td>      
 							  </td>
@@ -94,100 +94,26 @@
 							  </td>
 							  <td>
 				
-									<input type="radio"  name="group" value="march_level_1 7:45pm">
+									<input type="radio"  name="group" value="april_level_2 7:30pm">
 							  </td>  
 							  <td>
 								Level 1
 							  </td>
 							  <td>
-							  	Thursday 5th March
+							  	Thursday 30th April
 							  </td>					  
 							  <td>
 									19:45-20:45				
 							  </td>
 							  <td>
-									£85				
-							  </td>
-							  <td>
-									<%= 10- Booked_clients.where( :group => "march_level_1 7:45pm").count	%>	
-							  </td>
-							  <td>      
-							  </td>
-							</tr>
-							<tr>
-							  <td>
-							  </td>
-							  <td>
-							 
-									 <input type="radio"  name="group" value="march_level_2 7:00pm"> 
-							  </td> 
-							  <td>
-								Level 2
-							  </td>
-							  <td>
-							  	Friday 6th March
-							  </td>					  
-							  <td>
-									19:00-20:00				
-							  </td>
-							  <td>
 									£92			
 							  </td>
 							  <td>
-								<%= 10- Booked_clients.where( :group => "march_level_2 7:00pm").count	%>	
+									<%= 10- Booked_clients.where( :group => "april_level_2 7:45pm").count	%>	
 							  </td>
 							  <td>      
 							  </td>
-							</tr>
-							<tr>
-							  <td>
-							  </td>
-							  <td>
-							  	Booking available soon!
-									<!-- <input type="radio"  name="group" value=""> -->
-							  </td> 
-							  <td>
-								Level 3
-							  </td>
-							  <td>
-							  	Announcing soon
-							  </td>					  
-							  <td>
-								Announcing soon			
-							  </td>
-							  <td>
-												
-							  </td>						  
-							  <td>
-									<%= 10- Booked_clients.where( :group => "march_level_3 6:45pm").count	%>	
-							  </td>
-							  <td>      
-							  </td>
-							</tr>
-							<tr>
-							  <td>
-							  </td>
-							  <td>
-								<input type="radio"  name="group" value="march_choreography 6:45pm" >
-							  </td> 
-							  <td>
-								Choreography, strengthening and flexibility<br> (Level 2 and above)
-							  </td>
-							  <td>
-							  	Friday 6th March
-							  </td>					  
-							  <td>
-									6pm- 7pm				
-							  </td>
-							  <td>
-									£92				
-							  </td>
-							  <td>
-									<%= 5- Booked_clients.where( :group => "march_choreography 6:45pm").count	%>	
-							  </td>
-							  <td>      
-							  </td>
-							</tr>						
+							</tr>		
 						</table>
 						<div class="disc">
 							<input type="checkbox" name="disclaimer" value="confirmed" class="disc">Please tick to agree and comply with our <a href="disclaimer">disclaimer</a>

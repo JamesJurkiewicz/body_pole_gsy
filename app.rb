@@ -95,13 +95,14 @@ post '/sign_up' do
   @group = params[:group]
 
     # email words:
-    if group=="march_level_1 6:45pm"
-      @day = "Thursday 5th March"
+    if group=="april_level_1 6:30pm"
+      @day = "Thursday 30th April"
       @amount=85.00
       @level= "1"
-    elsif group == "march_level_1 7:45pm"
-      @day = "Thursday 5th March"
+    elsif group == "april_level_2 7:45pm"
+      @day = "Thursday 30th April"
       @amount=85.00 
+=begin
     elsif group == "march_choreography 6:45pm"
       @day = "Friday 6th March"
       @amount = 92.00
@@ -110,6 +111,8 @@ post '/sign_up' do
       @day = "Friday 6th March"
       @amount=92.00
       @level= "2"
+=end
+
     end
 
     @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
@@ -150,7 +153,7 @@ post '/sign_up' do
         :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
       })
 
-    elsif @level= "2 and above choreography"
+    elsif @level== "2 and above choreography"
       Pony.mail(
       :to => @email,
       :subject => "Body and Pole Guernsey confirmation",
