@@ -11,7 +11,9 @@ class Booked_clients
   field :disclaimer, type: String
   field :terms, type: String
   field :amount, type: String
+  field :date, type: String
   field :group, type: String
+  field :spa, type: String
 
 end
  
