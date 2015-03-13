@@ -280,8 +280,6 @@ post '/contact' do
       :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
   })
 
-  erb=end
- :contact_thankyou
-end
+  erb :contact_thankyou
 end
 
