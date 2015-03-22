@@ -201,7 +201,8 @@ post '/sign_up' do
       })
     end
 
-erb :payment
+  erb :payment
+end
 
 post '/party' do
   if params[:disclaimer]= "confirmed"
@@ -282,5 +283,5 @@ post '/contact' do
 
   erb :contact_thankyou
 end
-end
+
 
