@@ -60,7 +60,7 @@ end
 
 get '/sign_up'  do
 
-#@signups= Booked_clients.all
+@signups= Booked_clients.all
 
   #   puts @jan_1
 
@@ -103,7 +103,7 @@ post '/sign_up' do
     elsif group == "april_level_2 7:45pm"
       @day = "Thursday 30th April"
       @amount=85.00 
-=begin
+
     elsif group == "march_choreography 6:45pm"
       @day = "Friday 6th March"
       @amount = 92.00
@@ -112,7 +112,6 @@ post '/sign_up' do
       @day = "Friday 6th March"
       @amount=92.00
       @level= "2"
-=end
 
     end
 
@@ -123,86 +122,85 @@ post '/sign_up' do
       @time= @group.split.last
       puts @time
 
-    if settings.environment == :production
-      # if we're on heroku, use the sendgrid settings
-      require './production_pony_options'
-    else
-      # otherwise, use our normal email account
-      require './development_pony_options'
-    end
-
-    if @amount == 85.00
-      Pony.mail(
-      :to => @email,
-      :subject => "Body and Pole Guernsey confirmation",
-      :body => erb(:email, :layout => false),
-    # :bcc => anneka@...
-      :attachments => {"Pole Fitness and Health and Safety declaration.pdf" => File.read("public/Pole Fitness and Health and Safety declaration.pdf"),"Information_Sheet_Body_Pole_LVL_1.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_1.pdf"),"Disclaimer.pdf" => File.read("public/Disclaimer.pdf"),
-
-        },
-
-      :via => 'smtp',
-      :from => 'Body & Pole Limited',
-      :via => :smtp,
-      :via_options => {
-        :address              => 'smtp.gmail.com',
-        :port                 => '587',
-        :enable_starttls_auto => true,
-        :user_name            => 'bodyandpole.gsy@gmail.com',
-        :password             => '9carryonbrynn99',
-        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-      })
-
-    elsif @level== "2 and above choreography"
-      Pony.mail(
-      :to => @email,
-      :subject => "Body and Pole Guernsey confirmation",
-      :body => erb(:email, :layout => false),
-    # :bcc => anneka@...
-      :attachments => {"Pole Fitness and Health and Safety declaration choreography.pdf" => File.read("public/Pole Fitness and Health and Safety declaration choreography.pdf"),"Information Sheet Body Pole Choreography.pdf" => File.read("public/Information Sheet Body Pole Choreography.pdf"),"Disclaimer choreography.pdf" => File.read("public/Disclaimer choreography.pdf"),
-
-        },
-
-      :via => 'smtp',
-      :from => 'Body & Pole Limited',
-      :via => :smtp,
-      :via_options => {
-        :address              => 'smtp.gmail.com',
-        :port                 => '587',
-        :enable_starttls_auto => true,
-        :user_name            => 'bodyandpole.gsy@gmail.com',
-        :password             => '9carryonbrynn99',
-        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-      })
-
-    else 
-         Pony.mail(
-      :to => @email,
-      :subject => "Body and Pole Guernsey confirmation",
-      :body => erb(:email, :layout => false),
-    # :bcc => anneka@...
-      :attachments => {"Pole Fitness and Health and Safety declaration.pdf" => File.read("public/Pole Fitness and Health and Safety declaration.pdf"),"Information_Sheet_Body_Pole_LVL_2.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_2.pdf"),"Disclaimer.pdf" => File.read("public/Disclaimer.pdf"),
-
-        },
-
-      :via => 'smtp',
-      :from => 'Body & Pole Limited',
-      :via => :smtp,
-      :via_options => {
-        :address              => 'smtp.gmail.com',
-        :port                 => '587',
-        :enable_starttls_auto => true,
-        :user_name            => 'bodyandpole.gsy@gmail.com',
-        :password             => '9carryonbrynn99',
-        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-      })
-    end
-
   erb :payment
 end
+    #if settings.environment == :production
+      # if we're on heroku, use the sendgrid settings
+#      require './production_pony_options'
+#    else
+#      # otherwise, use our normal email account
+#      require './development_pony_options'
+#    end
+
+#    if @amount == 85.00
+#      Pony.mail(
+#      :to => @email,
+#      :subject => "Body and Pole Guernsey confirmation",
+#      :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+#      :attachments => {"Pole Fitness and Health and Safety declaration.pdf" => File.read("public/Pole Fitness and Health and Safety declaration.pdf"),"Information_Sheet_Body_Pole_LVL_1.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_1.pdf"),"Disclaimer.pdf" => File.read("public/Disclaimer.pdf"),
+
+#        },
+
+#      :via => 'smtp',
+#      :from => 'Body & Pole Limited',
+#      :via => :smtp,
+#      :via_options => {
+#        :address              => 'smtp.gmail.com',
+#        :port                 => '587',
+#        :enable_starttls_auto => true,
+#        :user_name            => 'bodyandpole.gsy@gmail.com',
+#        :password             => '9carryonbrynn99',
+#        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+#        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+#      })
+#
+#    elsif @level== "2 and above choreography"
+#      Pony.mail(
+#      :to => @email,
+#      :subject => "Body and Pole Guernsey confirmation",
+#      :body => erb(:email, :layout => false),
+#    # :bcc => anneka@...
+#      :attachments => {"Pole Fitness and Health and Safety declaration choreography.pdf" => File.read("public/Pole Fitness and Health and Safety declaration choreography.pdf"),"Information Sheet Body Pole Choreography.pdf" => File.read("public/Information Sheet Body Pole Choreography.pdf"),"Disclaimer choreography.pdf" => File.read("public/Disclaimer choreography.pdf"),
+
+#        },
+
+#      :via => 'smtp',
+#      :from => 'Body & Pole Limited',
+#      :via => :smtp,
+#      :via_options => {
+#        :address              => 'smtp.gmail.com',
+#        :port                 => '587',
+#        :enable_starttls_auto => true,
+#        :user_name            => 'bodyandpole.gsy@gmail.com',
+#        :password             => '9carryonbrynn99',
+#        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+#        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+#      })
+
+#    else 
+#         Pony.mail(
+#      :to => @email,
+#      :subject => "Body and Pole Guernsey confirmation",
+ #     :body => erb(:email, :layout => false),
+    # :bcc => anneka@...
+#      :attachments => {"Pole Fitness and Health and Safety declaration.pdf" => File.read("public/Pole Fitness and Health and Safety declaration.pdf"),"Information_Sheet_Body_Pole_LVL_2.pdf" => File.read("public/Information_Sheet_Body_Pole_LVL_2.pdf"),"Disclaimer.pdf" => File.read("public/Disclaimer.pdf"),
+#
+#       },
+#      :via => 'smtp',
+#     :from => 'Body & Pole Limited',
+#     :via => :smtp,
+#     :via_options => {
+#       :address              => 'smtp.gmail.com',
+#       :port                 => '587',
+#        :enable_starttls_auto => true,
+#        :user_name            => 'bodyandpole.gsy@gmail.com',
+#        :password             => '9carryonbrynn99',
+#        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+#        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+    #  })
+    #end
+
 
 post '/party' do
   if params[:disclaimer]= "confirmed"
