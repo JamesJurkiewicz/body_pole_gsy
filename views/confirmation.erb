@@ -26,9 +26,9 @@
 						Please confirm the details are correct: 
 						<br>Name: <%= @name %>
 						<br>Email: <%= @email %>
-						<br>Class: <%= @group %>
+						<br>Signing up to level <%= @level %> classes starting <%= @day %> 
 			    		
-						<a href="http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00" target="_top">
+						<a href= <%= @link %>
 									Confirm
 						</a>	
 			    		<button type="submit" class='btn btn-success' >Complete Booking</button>
