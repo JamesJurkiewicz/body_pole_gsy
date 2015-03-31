@@ -82,7 +82,6 @@ end
 
 post '/sign_up' do
 
-
   name=params[:name]
   email=params[:email]
   phone=params[:phone] 
@@ -94,35 +93,33 @@ post '/sign_up' do
   @name=params[:name]
   @email=params[:email]
   @group = params[:group]
+  
+  @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
+  @dancer.save
 
     # email words:
     if group=="april_level_1 6:30pm"
       @day = "Thursday 30th April"
       @amount=85.00
       @level= "1"
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00" target="_top"
     elsif group == "april_level_2 7:45pm"
       @day = "Thursday 30th April"
-      @amount=85.00 
-
-    elsif group == "march_choreography 6:45pm"
-      @day = "Friday 6th March"
-      @amount = 92.00
-      @level= "2 and above choreography"
-    else 
-      @day = "Friday 6th March"
-      @amount=92.00
+      @amount=92.00 
       @level= "2"
-
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+2+lessons+beginning+Thursday+30th+April+7+45pm&price=92.00" target="_top">
+    elsif group == "may_level_3 6:15pm"
+      @day = "Friday 1st May"
+      @amount = 92.00
+      @level= "3"
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+3+lessons+beginning+Friday+1st+May+6+15pm&price=92.00" target="_top">
+    elseif group ==  "may_level_4 7:15pm"
+      @day = "Friday 1th May"
+      @amount=99.00
+      @level= "4"
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+4+lessons+beginning+Friday+1st+May+7+15pm&price=99.00" target="_top">
     end
-
-    @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
-    @dancer.save
-
-      puts @day
-      @time= @group.split.last
-      puts @time
-
-  erb :payment
+erb :confirmation
 end
     #if settings.environment == :production
       # if we're on heroku, use the sendgrid settings
