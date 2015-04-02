@@ -102,22 +102,22 @@ post '/sign_up' do
       @day = "Thursday 30th April"
       @amount=85.00
       @level= "1"
-      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00" target="_top"
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00"
     elsif group == "april_level_2 7:45pm"
       @day = "Thursday 30th April"
       @amount=92.00 
       @level= "2"
-      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+2+lessons+beginning+Thursday+30th+April+7+45pm&price=92.00" target="_top">
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+2+lessons+beginning+Thursday+30th+April+7+45pm&price=92.00" 
     elsif group == "may_level_3 6:15pm"
       @day = "Friday 1st May"
       @amount = 92.00
       @level= "3"
-      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+3+lessons+beginning+Friday+1st+May+6+15pm&price=92.00" target="_top">
-    elseif group ==  "may_level_4 7:15pm"
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+3+lessons+beginning+Friday+1st+May+6+15pm&price=92.00" 
+    elsif group ==  "may_level_4 7:15pm"
       @day = "Friday 1th May"
       @amount=99.00
       @level= "4"
-      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+4+lessons+beginning+Friday+1st+May+7+15pm&price=99.00" target="_top">
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+4+lessons+beginning+Friday+1st+May+7+15pm&price=99.00" 
     end
 erb :confirmation
 end
@@ -278,5 +278,7 @@ post '/contact' do
 
   erb :contact_thankyou
 end
+
+
 
 

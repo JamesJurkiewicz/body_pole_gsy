@@ -90,7 +90,9 @@
 									£85				
 							  </td>
 							  <td>
-									<%= 10-count.where[@signups="april_level_1 6:30pm"] %>
+
+									<%= @jan_1_645= Booked_clients.where( :classes => "april_level_1 6:30pm" ).count	%>
+									<%= @jan_1_645 %>
 							  </td>
 							  <td>      
 							  </td>
@@ -115,7 +117,7 @@
 									£92			
 							  </td>
 							  <td>
-									<%= 10-count.where[@signups="april_level_2 7:45pm"] %>	
+
 							  </td>
 							  <td>      
 							  </td>
@@ -140,7 +142,7 @@
 									£92			
 							  </td>
 							  <td>
-									<%= 10-count.where[@signups="may_level_3 6:15pm"] %>
+				
 							  </td>
 							  <td>      
 							  </td>
@@ -165,7 +167,7 @@
 									£99			
 							  </td>
 							  <td>
-									<%= 10-count.where[@signups="april_level_1 6:30pm"] %>
+					
 							  </td>
 							  <td>      
 							  </td>
