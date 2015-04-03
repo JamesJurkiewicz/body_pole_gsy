@@ -106,6 +106,7 @@ post '/sign_up' do
         @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00"
       else
         erb :failure
+      end
     elsif group == "april_level_2 7:45pm"
       @day = "Thursday 30th April"
       @amount=92.00 
