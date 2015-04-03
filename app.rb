@@ -94,7 +94,7 @@ post '/sign_up' do
   @email=params[:email]
   @group = params[:group]
   
-  if Booked_clients.where( :group => @group ).count >= 2
+  if Booked_clients.where( :group => @group ).count >= 10
     erb :failure
   else
 
