@@ -91,7 +91,7 @@
 							  </td>
 							  <td>
 
-									<%= @a= 10-Booked_clients.where( :classes => "april_level_1 6:30pm" ).count	%>
+									<%= @a= 10-Booked_clients.where( :group => "april_level_1 6:30pm" ).count	%>
 								
 							  </td>
 							  <td>      
@@ -117,7 +117,7 @@
 									£92			
 							  </td>
 							  <td>
-							  	<%= @a= 10-Booked_clients.where( :classes => "april_level_2 7:45pm" ).count	%>
+							  	<%= @a= 10-Booked_clients.where( :group => "april_level_2 7:45pm" ).count	%>
 							  </td>
 							  <td>      
 							  </td>
@@ -142,7 +142,7 @@
 									£92			
 							  </td>
 							  <td>
-								<%= @a= 10-Booked_clients.where( :classes => "may_level_3 6:15pm" ).count	%>
+								<%= @a= 10-Booked_clients.where( :group => "may_level_3 6:15pm" ).count	%>
 							  </td>
 							  <td>      
 							  </td>
@@ -152,7 +152,7 @@
 							  </td>
 							  <td>
 								
-								<input type="radio"  name="group" value="april_level_2 7:30pm"> 
+								<input type="radio"  name="group" value="may_level_4 7:15pm"> 
 							  </td>  
 							  <td>
 								Level 4
@@ -167,7 +167,7 @@
 									£99			
 							  </td>
 							  <td>
-									<%= @a= 10-Booked_clients.where( :classes => "may_level_14 7:30pm" ).count	%>
+									<%= 10-Booked_clients.where( :group => "may_level_4 7:15pm" ).count	%>
 							  </td>
 							  <td>      
 							  </td>
