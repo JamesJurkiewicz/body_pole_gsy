@@ -94,19 +94,18 @@ post '/sign_up' do
   @email=params[:email]
   @group = params[:group]
   
-  @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
-  @dancer.save
+  if Booked_clients.where( :group => @group ).count <= 2
+    erb :failure
+  else
 
-    # email words:
+    @dancer=Booked_clients.new(:name => name, :email => email, :phone => phone,  :disclaimer => disclaimer, :terms => terms, :amount => @amount, :group => group)
+    @dancer.save
+
     if group=="april_level_1 6:30pm"
-      if Booked_clients.where( :group => "april_level_1 6:30pm" ).count <= 2
-        @day = "Thursday 30th April"
-        @amount=85.00
-        @level= "1"
-        @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00"
-      else
-        erb :failure
-      end
+      @day = "Thursday 30th April"
+      @amount=85.00
+      @level= "1"
+      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00"
     elsif group == "april_level_2 7:45pm"
       @day = "Thursday 30th April"
       @amount=92.00 
@@ -123,7 +122,8 @@ post '/sign_up' do
       @level= "4"
       @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+4+lessons+beginning+Friday+1st+May+7+15pm&price=99.00" 
     end
-erb :confirmation
+  erb :confirmation
+  end
 end
     #if settings.environment == :production
       # if we're on heroku, use the sendgrid settings
