@@ -99,10 +99,13 @@ post '/sign_up' do
 
     # email words:
     if group=="april_level_1 6:30pm"
-      @day = "Thursday 30th April"
-      @amount=85.00
-      @level= "1"
-      @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00"
+      if Booked_clients.where( :group => "april_level_1 6:30pm" ).count <= 2
+        @day = "Thursday 30th April"
+        @amount=85.00
+        @level= "1"
+        @link = "http://www.fastcart.co.uk/cart/index.php?id=11849&item=Level+1+Lessons+beginning+Thursday+30th+April+6+30pm&price=85.00"
+      else
+        erb :failure
     elsif group == "april_level_2 7:45pm"
       @day = "Thursday 30th April"
       @amount=92.00 
